@@ -1,6 +1,6 @@
-package adaptor;
+package white.ra.simple.io.container.adaptor;
 
-import contract.JavaInstanceConfigurationInterface;
+import white.ra.simple.io.container.contract.JavaInstanceConfigurationInterface;
 
 import java.util.LinkedHashMap;
 

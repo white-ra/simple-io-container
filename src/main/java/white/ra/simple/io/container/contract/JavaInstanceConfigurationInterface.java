@@ -1,4 +1,4 @@
-package contract;
+package white.ra.simple.io.container.contract;
 
 import java.util.LinkedHashMap;
 
