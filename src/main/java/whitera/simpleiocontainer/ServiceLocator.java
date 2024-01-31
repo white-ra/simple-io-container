@@ -19,19 +19,15 @@ public class ServiceLocator {
         try {
             Constructor<T>[] constructors = (Constructor<T>[]) clazz.getConstructors();
 
-            if (null == params) {
-                Constructor<T> noArgsConstructor = clazz.getConstructor();
-                this.instances.put(clazz, noArgsConstructor.newInstance());
-            } else {
-                for (Constructor<T> constructor : constructors) {
-                    if (params.length != constructor.getParameterCount()) {
-                        continue;
-                    }
-
-                    this.instances.put(clazz, constructor.newInstance(params));
-                    break;
+            for (Constructor<T> constructor : constructors) {
+                if (params.length != constructor.getParameterCount()) {
+                    continue;
                 }
+
+                this.instances.put(clazz, constructor.newInstance(params));
+                break;
             }
+
         } catch (ReflectiveOperationException exception) {
             throw new CreateInstanceException(clazz);
         }
